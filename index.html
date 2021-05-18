@@ -1,0 +1,149 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000"><link rel="manifest" href="/ps-sandbox/manifest.json"><link rel="shortcut icon" href="/ps-sandbox/favicon.ico"><script type="text/javascript" src="https://platform.cloud.coveo.com/rest/organizations/paloaltonetworksintranetsandbox2/pages/05155117-46ee-4aa6-96f7-169c216403f1/inappwidget/loader" async></script><script defer="defer" src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script><script type="text/javascript">var accounts = [
+    "Stark Industries",
+    "Wayne Enterprises",
+    "Hooli",
+    "Dunder Mifflin US",
+    "Willy Wonka Industrial",
+    "Pied Piper",
+    "Dunder Mifflin EU",
+    "Associated Strategies",
+    "Krusty Krab",
+    "Sterling Cooper"
+];
+
+let month = new Date().getMonth()
+let weight;
+
+if (month % 2) {
+    weight = [ 300, 175, 125, 100, 75, 75, 50, 50, 25, 25 ];
+} else {
+    weight = [ 300, 25, 50, 50, 75, 75, 100, 125, 175, 25 ];
+}
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+
+    var cleanName = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + cleanName + '(=([^&#]*)|&|#|$)');
+    var results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+let accountParam = getParameterByName('accountId');
+let visitorParam = getParameterByName('visitorId');
+
+function pickUsingWeights(items, weights) {
+    var total = 0;
+    var ranges = weights.slice(0);
+
+    for(var i = 0, len = weights.length; i < len; i++) {
+        ranges[i] = [total, total += ranges[i]];
+    }
+    var randomNumber = parseInt(Math.random() * total);
+    for(;randomNumber < ranges[--i][0];);
+    return items[i];
+}
+
+var account_id = pickUsingWeights(accounts, weight);
+
+let accString = account_id.replace(/\s/g, '');
+let randNum = Math.random() * 100;
+let visitor;
+let role;
+
+if (randNum < 25) {
+    visitor = 'visitor1@' + accString + '.com';
+    role = 'admin';
+} else if (randNum <= 50) {
+    visitor = 'visitor6@' + accString + '.com';
+    role = 'admin';
+} else if (randNum <= 65) {
+    visitor = 'visitor4@' + accString + '.com';
+    role = 'user';
+} else if (randNum <= 80) {
+    visitor = 'visitor7@' + accString + '.com';
+    role = 'user';
+} else if (randNum <= 90) {
+    visitor = 'visitor5@' + accString + '.com';
+    role = 'user';
+} else if (randNum <= 95) {
+    visitor = 'visitor3@' + accString + '.com';
+    role = 'read-only';
+} else {
+    visitor = 'visitor2@' + accString + '.com';
+    role = 'read-only';
+}</script><script>!function(e,n,t,a,c){var i,o,d,s,f;for((c=e[a]=e[a]||{})._q=[],o=0,d=(i=["initialize","identify","updateOptions","pageLoad"]).length;o<d;++o)!function(e){c[e]=c[e]||function(){c._q[e===i[0]?"unshift":"push"]([e].concat([].slice.call(arguments,0)))}}(i[o]);(s=n.createElement(t)).async=!0,s.src="https://cdn.pendo.io/agent/static/350fbc0a-1c51-461a-68f0-6ccaaa3dedf3/pendo.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(s,f)}(window,document,"script","pendo")</script><script>// This will add a type attribute of image for any image badges
+        // Additionally, it will:
+        //  1) If the badge is the RC, add the alt-text "Resource Center"
+        //  2) If the badge has a string in the guide name within #[ ], then make the
+        //     alt-text that string
+        //  3) Otherwise, just default the alt-text to "tooltip badge"
+        
+        pendo.initialize({
+            visitor: {
+              id:       visitorParam || visitor || 'VISITOR-UNIQUE-ID',
+              role:     role || 'user'
+            },
+         
+            account: {
+              id:       accountParam || account_id
+            },
+
+            events: {
+              ready: function () {
+              pendo.addBodyMutationListener();
+            }
+          }
+        });
+
+        pendo.addAltText = function(guideId) {
+          var badgeId = pendo.badgesShown[guideId].domJson.children[1].props.id;
+          if (pendo.dom("#"+badgeId+ " img")[0] || pendo.dom("#"+badgeId+ " input")[0] ) {
+            if(pendo.dom("#"+badgeId+ " img")[0] ){
+                pendo.dom("#"+badgeId+ " img")[0].setAttribute('type', 'image');
+            }
+            var guideName = pendo.guides.filter(elem=>elem.id==guideId)[0].name;
+            if (guideName.includes("#[")) {
+              var guideNameAltText = guideName.substring(guideName.indexOf("#[")+2, guideName.indexOf("]"));
+            }
+
+            if(pendo.guides.filter(elem=>elem.id==guideId)[0].name == "Resource Center") {
+              pendo.dom("#"+badgeId+ " input")[0].setAttribute('alt', "Resource Center");
+            } else if (guideNameAltText) {
+              pendo.dom("#"+badgeId+ " img")[0].setAttribute('alt', guideNameAltText);
+            } else {
+              pendo.dom("#"+badgeId+ " img")[0].setAttribute('alt', "tooltip badge");
+            }
+          }
+        }
+
+        pendo.addBodyMutationListener = function() {
+          var target = document.querySelector('body');
+
+          // create an observer instance
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.addedNodes.length) {
+                if (mutation.addedNodes[0].className.includes("_pendo-badge")) {
+                  if (pendo.badgesShown) {
+                    var badgeList = pendo.badgesShown;
+                    Object.keys(badgeList).forEach(gid => pendo.addAltText(gid)); 
+                  }
+                }
+              }
+            })
+          })
+
+          var config = {
+            attributeFilter: ['data-layout'],
+            attributes: true,
+            childList: true,
+            characterData: true,
+            subtree: false
+          };
+
+          observer.observe(target, config);
+        }</script><title>Pendo Experience</title><link href="/ps-sandbox/static/css/main.57ce9abe.css" rel="stylesheet"></head><body><noscript>You'll need to enable JavaScript to run this app.</noscript><div id="root"></div><script type="text/javascript" src="/ps-sandbox/static/js/main.2608956f.js"></script></body></html>
