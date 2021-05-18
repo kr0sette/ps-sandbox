@@ -6,7 +6,7 @@ const allSelectors = listSelectors.concat(layoutSelectors);
 module.exports = async (browser) => {
     const newPage = await browser.newPage();
 
-    await newPage.goto('https://fortynachos.github.io/ps-sandbox');
+    await newPage.goto('https://kr0sette.github.io/ps-sandbox');
     await newPage.waitFor(500);
 
     await newPage.evaluate(() => {
