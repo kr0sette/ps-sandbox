@@ -115,12 +115,12 @@ if (randNum < 25) {
         //  2) If the badge has a string in the guide name within #[ ], then make the
         //     alt-text that string
         //  3) Otherwise, just default the alt-text to "tooltip badge"
-        var testID = 'onboarding-vis1';
+        /*var testID = 'onboarding-vis1';*/
 
         
         pendo.initialize({
             visitor: {
-              id:       testID/*visitorParam || visitor || 'VISITOR-UNIQUE-ID'*/,
+              id:       visitorParam || visitor || 'VISITOR-UNIQUE-ID',
               role:     role || 'user'
             },
          
