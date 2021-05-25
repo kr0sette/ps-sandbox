@@ -52,6 +52,7 @@ function getParameterByName(name, url) {
 
 let accountParam = getParameterByName('accountId');
 let visitorParam = getParameterByName('visitorId');
+let testID = 'onboarding-vis1’;
 
 function pickUsingWeights(items, weights) {
     var total = 0;
@@ -118,7 +119,7 @@ if (randNum < 25) {
         
         pendo.initialize({
             visitor: {
-              id:       visitorParam || visitor || 'VISITOR-UNIQUE-ID',
+              id:       testID/*visitorParam || visitor || 'VISITOR-UNIQUE-ID'*/,
               role:     role || 'user'
             },
          
