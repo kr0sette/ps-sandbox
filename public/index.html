@@ -52,7 +52,6 @@ function getParameterByName(name, url) {
 
 let accountParam = getParameterByName('accountId');
 let visitorParam = getParameterByName('visitorId');
-let testID = 'onboarding-vis1';
 
 function pickUsingWeights(items, weights) {
     var total = 0;
@@ -116,6 +115,8 @@ if (randNum < 25) {
         //  2) If the badge has a string in the guide name within #[ ], then make the
         //     alt-text that string
         //  3) Otherwise, just default the alt-text to "tooltip badge"
+        var testID = 'onboarding-vis1';
+
         
         pendo.initialize({
             visitor: {
