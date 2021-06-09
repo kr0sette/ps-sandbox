@@ -116,7 +116,7 @@ if (randNum < 25) {
         //     alt-text that string
         //  3) Otherwise, just default the alt-text to "tooltip badge"
         /*var testID = 'onboarding-vis1';*/
-
+        console.log("Please ignore this message");
         
         pendo.initialize({
             visitor: {
@@ -126,63 +126,8 @@ if (randNum < 25) {
          
             account: {
               id:       accountParam || account_id
-            },
-
-            events: {
-              ready: function () {
-              pendo.addBodyMutationListener();
             }
-          }
         });
-
-        pendo.addAltText = function(guideId) {
-          var badgeId = pendo.badgesShown[guideId].domJson.children[1].props.id;
-          if (pendo.dom("#"+badgeId+ " img")[0] || pendo.dom("#"+badgeId+ " input")[0] ) {
-            if(pendo.dom("#"+badgeId+ " img")[0] ){
-                pendo.dom("#"+badgeId+ " img")[0].setAttribute('type', 'image');
-            }
-            var guideName = pendo.guides.filter(elem=>elem.id==guideId)[0].name;
-            if (guideName.includes("#[")) {
-              var guideNameAltText = guideName.substring(guideName.indexOf("#[")+2, guideName.indexOf("]"));
-            }
-
-            if(pendo.guides.filter(elem=>elem.id==guideId)[0].name == "Resource Center") {
-              pendo.dom("#"+badgeId+ " input")[0].setAttribute('alt', "Resource Center");
-            } else if (guideNameAltText) {
-              pendo.dom("#"+badgeId+ " img")[0].setAttribute('alt', guideNameAltText);
-            } else {
-              pendo.dom("#"+badgeId+ " img")[0].setAttribute('alt', "tooltip badge");
-            }
-          }
-        }
-
-        pendo.addBodyMutationListener = function() {
-          var target = document.querySelector('body');
-
-          // create an observer instance
-          var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-              if (mutation.addedNodes.length) {
-                if (mutation.addedNodes[0].className.includes("_pendo-badge")) {
-                  if (pendo.badgesShown) {
-                    var badgeList = pendo.badgesShown;
-                    Object.keys(badgeList).forEach(gid => pendo.addAltText(gid)); 
-                  }
-                }
-              }
-            })
-          })
-
-          var config = {
-            attributeFilter: ['data-layout'],
-            attributes: true,
-            childList: true,
-            characterData: true,
-            subtree: false
-          };
-
-          observer.observe(target, config);
-        }
 </script>
 
     
