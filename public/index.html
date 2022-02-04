@@ -105,15 +105,6 @@ if (randNum < 25) {
 </script>
 
 <script>
-        // This will add a type attribute of image for any image badges
-        // Additionally, it will:
-        //  1) If the badge is the RC, add the alt-text "Resource Center"
-        //  2) If the badge has a string in the guide name within #[ ], then make the
-        //     alt-text that string
-        //  3) Otherwise, just default the alt-text to "tooltip badge"
-        /*var testID = 'onboarding-vis1';*/
-        console.log("Please ignore this message");
-        
         pendo.initialize({
             visitor: {
               id:       visitorParam || visitor || 'VISITOR-UNIQUE-ID',
@@ -124,6 +115,10 @@ if (randNum < 25) {
               id:       accountParam || account_id
             }
         });
+
+        <!--  Coveo In-Product Experience -->
+        <script type="text/javascript" src="https://platform.cloud.coveo.com/rest/organizations/paycorsoftwarenonproduction19dimnswb/pages/cd38521f-1060-49db-b878-fc76be7b4abe/inappwidget/loader" async ></script>
+<!-- End Coveo In-Product Experience -->
 </script>
 
     
@@ -140,9 +135,6 @@ work correctly both with client-side routing and a non-root public URL.
 Learn how to configure a non-root public URL by running `npm run build`.
 -->
 
-<!--  Coveo In-Product Experience -->
-<script type="text/javascript" src="https://platform.cloud.coveo.com/rest/organizations/paycorsoftwarenonproduction19dimnswb/pages/cd38521f-1060-49db-b878-fc76be7b4abe/inappwidget/loader" async ></script>
-<!-- End Coveo In-Product Experience -->
 
 
 <title>Pizza CRM</title>
