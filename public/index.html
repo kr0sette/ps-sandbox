@@ -161,11 +161,11 @@ Learn how to configure a non-root public URL by running `npm run build`.
     ipxLoaderScript.setAttribute("async","");
     body.appendChild(ipxLoaderScript);
 
-    var ipxBtn = document.getElementsByTagName("coveo-in-app-widget-loader")[0].shadowRoot.lastElementChild;
-    ipxBtn.style.visibility = "hidden";
+    //var ipxBtn = document.getElementsByTagName("coveo-in-app-widget-loader")[0].shadowRoot.lastElementChild;
+    //ipxBtn.style.visibility = "hidden";
 
 //Mutation Observer target & options
-/*var options = { childList: true, subtree: true };
+var options = { childList: true, subtree: true };
 
         //Creates Mutation Observer
         var observer = new MutationObserver(RCmoduleAppears);
@@ -173,15 +173,12 @@ Learn how to configure a non-root public URL by running `npm run build`.
         //Mutation Observer Callback function
         function RCmoduleAppears(mutations) {
             for (let mutation of mutations){
-                if (mutation.addedNodes > 0){
-                    console.log(mutation);
-                };
+                console.log(mutation);
             };
         };
         
         //Start Mutation Observer
-        observer.observe(body, options);*/
-
+        observer.observe(body, options);
 
 </script>
 <!-- End Coveo In-Product Experience -->
