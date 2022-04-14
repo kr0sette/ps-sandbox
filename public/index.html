@@ -165,6 +165,7 @@ Learn how to configure a non-root public URL by running `npm run build`.
     //ipxBtn.style.visibility = "hidden";
 
 //Mutation Observer target & options
+var ipxBtn;
 var options = { childList: true, subtree: true };
 
         //Creates Mutation Observer
@@ -175,7 +176,7 @@ var options = { childList: true, subtree: true };
             for (let mutation of mutations){
                 if (mutation.addedNodes.length > 0 && mutation.addedNodes[0].localName == "coveo-in-app-widget-loader"){
                     console.log(mutation);
-                    var ipxBtn = document.getElementsByTagName("coveo-in-app-widget-loader")[0].shadowRoot.lastElementChild;
+                    ipxBtn = document.getElementsByTagName("coveo-in-app-widget-loader")[0].shadowRoot.lastElementChild;
                     ipxBtn.style.visibility = "hidden";
                 }
             };
