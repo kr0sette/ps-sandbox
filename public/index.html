@@ -173,7 +173,11 @@ var options = { childList: true, subtree: true };
         //Mutation Observer Callback function
         function RCmoduleAppears(mutations) {
             for (let mutation of mutations){
-                console.log(mutation);
+                if (mutation.addedNodes.length > 0 && mutation.addedNodes.localName == "coveo-in-app-widget-loader"){
+                    console.log(mutation);
+                    var ipxBtn = document.getElementsByTagName("coveo-in-app-widget-loader")[0].shadowRoot.lastElementChild;
+                    ipxBtn.style.visibility = "hidden";
+                }
             };
         };
         
