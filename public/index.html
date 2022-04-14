@@ -133,13 +133,6 @@ work correctly both with client-side routing and a non-root public URL.
 Learn how to configure a non-root public URL by running `npm run build`.
 -->
 
-<!--<style>
-coveo-in-app-widget-loader::part(button){
-    visibility: hidden !important;
-}
-</style>-->
-
-
 <title>Pizza CRM</title>
 </head>
 <body>
@@ -152,11 +145,6 @@ coveo-in-app-widget-loader::part(button){
 
 <script>
     var body = document.body;
-
-    //create & add IPX target element
-    var ipxTargetDiv = document.createElement("div");
-    ipxTargetDiv.id = "IPX-target-div";
-    body.appendChild(ipxTargetDiv);
 
     var headTag = document.head || document.getElementsByTagName('head')[0];
     var styleTag  = document.createElement("style");
@@ -178,7 +166,7 @@ coveo-in-app-widget-loader::part(button){
     //ipxBtn.style.visibility = "hidden";
 
 //Mutation Observer target & options
-var ipxBtn;
+/*var ipxBtn;
 var options = { childList: true, subtree: true };
 
         //Creates Mutation Observer
@@ -196,7 +184,7 @@ var options = { childList: true, subtree: true };
         };
         
         //Start Mutation Observer
-        observer.observe(body, options);
+        observer.observe(body, options);*/
 
 </script>
 <!-- End Coveo In-Product Experience -->
