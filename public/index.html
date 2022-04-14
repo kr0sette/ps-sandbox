@@ -161,6 +161,9 @@ Learn how to configure a non-root public URL by running `npm run build`.
     ipxLoaderScript.setAttribute("async","");
     body.appendChild(ipxLoaderScript);
 
+    var ipxBtn = document.getElementsByTagName("coveo-in-app-widget-loader")[0].shadowRoot.lastElementChild;
+    ipxBtn.style.visibility = "hidden";
+
 //Mutation Observer target & options
 /*var options = { childList: true, subtree: true };
 
