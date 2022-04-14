@@ -141,7 +141,26 @@ Learn how to configure a non-root public URL by running `npm run build`.
 
 
     <!--  Coveo In-Product Experience -->
-<script type="text/javascript" src="https://platform.cloud.coveo.com/rest/organizations/paycorsoftwarenonproduction19dimnswb/pages/cd38521f-1060-49db-b878-fc76be7b4abe/inappwidget/loader" async ></script>
+<!--<script type="text/javascript" src="https://platform.cloud.coveo.com/rest/organizations/paycorsoftwarenonproduction19dimnswb/pages/cd38521f-1060-49db-b878-fc76be7b4abe/inappwidget/loader" async >
+    console.log("Testing if I can run something alongside Coveo In Product Snippet");
+</script>-->
+
+<script>
+    var body = document.body;
+
+    //create & add IPX target element
+    var ipxTargetDiv = document.createElement("div");
+    ipxTargetDiv.id = "IPX-target-div";
+    body.appendChild(ipxTargetDiv);
+
+
+    //create and add IPX loader snippet
+    var ipxLoaderScript = document.createElement("script");
+    ipxLoaderScript.type = "text/javascript";
+    ipxLoaderScript.src = "https://platform.cloud.coveo.com/rest/organizations/paycorsoftwarenonproduction19dimnswb/pages/cd38521f-1060-49db-b878-fc76be7b4abe/inappwidget/loader";
+    ipxLoaderScript.setAttribute("async","");
+    body.appendChild(ipxLoaderScript);
+</script>
 <!-- End Coveo In-Product Experience -->
     <noscript>
         You'll need to enable JavaScript to run this app. 
