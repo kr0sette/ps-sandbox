@@ -75,4 +75,36 @@ if (randNum < 25) {
 } else {
     visitor = 'visitor2@' + accString + '.com';
     role = 'read-only';
-}</script><script>!function(e,n,t,a,c){var i,o,d,s,f;for((c=e[a]=e[a]||{})._q=[],o=0,d=(i=["initialize","identify","updateOptions","pageLoad"]).length;o<d;++o)!function(e){c[e]=c[e]||function(){c._q[e===i[0]?"unshift":"push"]([e].concat([].slice.call(arguments,0)))}}(i[o]);(s=n.createElement(t)).async=!0,s.src="https://cdn.pendo.io/agent/static/350fbc0a-1c51-461a-68f0-6ccaaa3dedf3/pendo.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(s,f)}(window,document,"script","pendo")</script><script>pendo.initialize({visitor:{id:visitorParam||visitor||"VISITOR-UNIQUE-ID",role:role||"user"},account:{id:accountParam||account_id}})</script><title>Pizza CRM</title><link href="/ps-sandbox/static/css/main.57ce9abe.css" rel="stylesheet"></head><body><script>var body=document.body,ipxTargetDiv=document.createElement("div");ipxTargetDiv.id="IPX-target-div",body.appendChild(ipxTargetDiv);var ipxLoaderScript=document.createElement("script");ipxLoaderScript.type="text/javascript",ipxLoaderScript.src="https://platform.cloud.coveo.com/rest/organizations/paycorsoftwarenonproduction19dimnswb/pages/cd38521f-1060-49db-b878-fc76be7b4abe/inappwidget/loader",ipxLoaderScript.setAttribute("async",""),body.appendChild(ipxLoaderScript);var ipxBtn=document.getElementsByTagName("coveo-in-app-widget-loader")[0].shadowRoot.lastElementChild;ipxBtn.style.visibility="hidden"</script><noscript>You'll need to enable JavaScript to run this app.</noscript><div id="root"></div><script type="text/javascript" src="/ps-sandbox/static/js/main.32091b2b.js"></script></body></html>
+}</script><script>!function(e,n,t,a,c){var i,o,d,s,f;for((c=e[a]=e[a]||{})._q=[],o=0,d=(i=["initialize","identify","updateOptions","pageLoad"]).length;o<d;++o)!function(e){c[e]=c[e]||function(){c._q[e===i[0]?"unshift":"push"]([e].concat([].slice.call(arguments,0)))}}(i[o]);(s=n.createElement(t)).async=!0,s.src="https://cdn.pendo.io/agent/static/350fbc0a-1c51-461a-68f0-6ccaaa3dedf3/pendo.js",(f=n.getElementsByTagName(t)[0]).parentNode.insertBefore(s,f)}(window,document,"script","pendo")</script><script>pendo.initialize({visitor:{id:visitorParam||visitor||"VISITOR-UNIQUE-ID",role:role||"user"},account:{id:accountParam||account_id}})</script><title>Pizza CRM</title><link href="/ps-sandbox/static/css/main.57ce9abe.css" rel="stylesheet"></head><body><script>var body = document.body;
+
+    //create & add IPX target element
+    var ipxTargetDiv = document.createElement("div");
+    ipxTargetDiv.id = "IPX-target-div";
+    body.appendChild(ipxTargetDiv);
+
+
+    //create and add IPX loader snippet
+    var ipxLoaderScript = document.createElement("script");
+    ipxLoaderScript.type = "text/javascript";
+    ipxLoaderScript.src = "https://platform.cloud.coveo.com/rest/organizations/paycorsoftwarenonproduction19dimnswb/pages/cd38521f-1060-49db-b878-fc76be7b4abe/inappwidget/loader";
+    ipxLoaderScript.setAttribute("async","");
+    body.appendChild(ipxLoaderScript);
+
+    //var ipxBtn = document.getElementsByTagName("coveo-in-app-widget-loader")[0].shadowRoot.lastElementChild;
+    //ipxBtn.style.visibility = "hidden";
+
+//Mutation Observer target & options
+var options = { childList: true, subtree: true };
+
+        //Creates Mutation Observer
+        var observer = new MutationObserver(RCmoduleAppears);
+        
+        //Mutation Observer Callback function
+        function RCmoduleAppears(mutations) {
+            for (let mutation of mutations){
+                console.log(mutation);
+            };
+        };
+        
+        //Start Mutation Observer
+        observer.observe(body, options);</script><noscript>You'll need to enable JavaScript to run this app.</noscript><div id="root"></div><script type="text/javascript" src="/ps-sandbox/static/js/main.32091b2b.js"></script></body></html>
