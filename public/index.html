@@ -160,6 +160,22 @@ Learn how to configure a non-root public URL by running `npm run build`.
     ipxLoaderScript.src = "https://platform.cloud.coveo.com/rest/organizations/paycorsoftwarenonproduction19dimnswb/pages/cd38521f-1060-49db-b878-fc76be7b4abe/inappwidget/loader";
     ipxLoaderScript.setAttribute("async","");
     body.appendChild(ipxLoaderScript);
+
+//Mutation Observer target & options
+var options = { childList: true, subtree: true };
+
+        //Creates Mutation Observer
+        var observer = new MutationObserver(RCmoduleAppears);
+        
+        //Mutation Observer Callback function
+        function RCmoduleAppears(mutations) {
+            console.log(mutations);
+        }
+        
+        //Start Mutation Observer
+        observer.observe(body, options);
+
+
 </script>
 <!-- End Coveo In-Product Experience -->
     <noscript>
