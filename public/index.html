@@ -133,11 +133,11 @@ work correctly both with client-side routing and a non-root public URL.
 Learn how to configure a non-root public URL by running `npm run build`.
 -->
 
-<style>
+<!--<style>
 coveo-in-app-widget-loader::part(button){
     visibility: hidden !important;
 }
-</style>
+</style>-->
 
 
 <title>Pizza CRM</title>
@@ -157,6 +157,14 @@ coveo-in-app-widget-loader::part(button){
     var ipxTargetDiv = document.createElement("div");
     ipxTargetDiv.id = "IPX-target-div";
     body.appendChild(ipxTargetDiv);
+
+    var headTag = document.head || document.getElementsByTagName('head')[0];
+    var styleTag  = document.createElement("style");
+    styleTag.type = 'text/css';
+    var hideIPXBtnCSS = `coveo-in-app-widget-loader::part(button){visibility: hidden !important;}`;
+    styleTag.appendChild(document.createTextNode(hideIPXBtnCSS));
+    headTag.appendChild(styleTag);
+
 
 
     //create and add IPX loader snippet
