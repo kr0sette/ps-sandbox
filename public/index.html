@@ -114,7 +114,18 @@ if (randNum < 25) {
             account: {
               id:       accountParam || account_id
             },
-            disableGuides: false
+            excludeAllText: "false",
+            excludeTitle: false,
+            disableCookies: false,
+            disablePersistence: false,
+            disableGuides: false,
+            guides: {
+                delay: false,
+                timeout: "infinity",
+                tooltip: {
+                    arrowSize: "15",
+                }
+            }
         });
 
        
