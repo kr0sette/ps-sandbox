@@ -105,7 +105,6 @@ if (randNum < 25) {
 </script>
 
 <script>
-        var pendoSnippetData =  {"FeatureToggle":"true","APIKey":"2ee9d0bd-a3e7-416d-706b-6e144cc5e3a0","VisitorId":2503,"FullName":"kenerio","Email":"kristine.Enerio@servus.ca","Roles":[],"ServusPosition":"","Branch":"","UserDateAdded":"2022-09-26T15:46:37.367","AccountId":"CreditPathBVT","ExcludeAllText":"false","ExcludeTitle":"false","DisableCookies":"false","DisablePersistence":"false","DisableGuides":"false","GuideDelay":"false","GuideTimeout":"infinity","TooltipArrowSize":"15"};
 
         pendo.initialize({
             visitor: {
@@ -115,18 +114,6 @@ if (randNum < 25) {
          
             account: {
               id:       accountParam || account_id
-            },
-                    excludeAllText: pendoSnippetData.ExcludeAllText,
-                    excludeTitle: pendoSnippetData.ExcludeTitle,
-                    disableCookies: pendoSnippetData.DisableCookies,
-                    disablePersistence: pendoSnippetData.DisablePersistence,
-                    disableGuides: pendoSnippetData.DisableGuides,
-                    guides: {
-                        delay: pendoSnippetData.GuideDelay,
-                        timeout: pendoSnippetData.GuideTimeout,
-                        tooltip: {
-                            arrowSize: pendoSnippetData.TooltipArrowSize,
-                        }
             }
         });
 
