@@ -105,7 +105,7 @@ export default class Body extends React.Component {
 	_langOnLoad() {
 		console.log("Select Language Menu Loaded");
 		if(!window.localStorage.getItem("test-guide-lang")){
-			let langValue = 'italian';//Set default language to Italian
+			let langValue = 'english';//Set default language to english
 			this.setState({
 				langValue
 			})
