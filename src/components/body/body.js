@@ -103,7 +103,7 @@ export default class Body extends React.Component {
 
 	//Update guideLang metadata value for user, based on what they select on the menu
 	_onLangChange(e) {
-		console.log(e.target);
+		console.log(e.target.value);
 	}
 
 	render() {
