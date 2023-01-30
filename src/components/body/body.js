@@ -107,6 +107,12 @@ export default class Body extends React.Component {
 				<div className="app-container">
 					<div className="vertical-menu">
 						<Search placeholder="Search" enterButton onSearch={value => console.log(value)}/>
+						<label for="lang-selector">Select a Language</label>
+						<select name="lang-selector" id="select-lang">
+							<option value="english">English(default)</option>
+							<option value="spanish">Spanish</option>
+							<option value="italian">Italian</option>
+						</select>
 						<Button type='primary' size="large" id="add-new" onClick={(e) => this._onAddNew(e)}>
 							Add New
 						</Button>
