@@ -109,7 +109,11 @@ export default class Body extends React.Component {
 		} else {
 			let storageLang = window.localStorage.getItem("test-guide-lang");
 			console.log("Language in Storage: " + storageLang);
-			console.log("Current Menu Language: " + this.state.langValue);
+			let langValue = storageLange;
+			this.setState({
+				langValue
+			})
+			//console.log("Current Menu Language: " + this.state.langValue);
 		}
 	}
 	//Update guideLang metadata value for user, based on what they select on the menu
