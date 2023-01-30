@@ -123,6 +123,11 @@ export default class Body extends React.Component {
 	_onLangChange(e) {
 		console.log("New Language Selected: " + e.target.value);
 		window.localStorage.setItem("test-guide-lang",e.target.value);
+		let newStorageLang = window.localStorage.getItem("test-guide-lang");
+		let langValue = newStorageLang;
+		this.setState({
+			langValue
+		})
 	}
 
 	componentDidMount(){
