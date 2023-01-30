@@ -37,7 +37,7 @@ export default class Body extends React.Component {
 				fieldTwo: '',
 				fieldThree: ''
 			},
-			langValue: "english"
+			langValue: "italian"
 		}
 	}
 
