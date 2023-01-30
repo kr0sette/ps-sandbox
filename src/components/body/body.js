@@ -101,7 +101,7 @@ export default class Body extends React.Component {
 		})
 	}
 
-	_langOnLoad(e) {
+	_langOnLoad() {
 		console.log("Select Language Menu Loaded");
 		if(!window.localStorage.getItem("test-guide-lang")){
 			return
@@ -122,7 +122,7 @@ export default class Body extends React.Component {
 					<div className="vertical-menu">
 						<Search placeholder="Search" enterButton onSearch={value => console.log(value)}/>
 						<label for="lang-selector">Select a Language</label>
-						<select name="lang-selector" id="select-lang" onload={this._langOnLoad(e)} onChange={(e) => this._onLangChange(e)}>
+						<select name="lang-selector" id="select-lang" onload={this._langOnLoad()} onChange={(e) => this._onLangChange(e)}>
 							<option value="english">English(default)</option>
 							<option value="spanish">Spanish</option>
 							<option value="italian">Italian</option>
