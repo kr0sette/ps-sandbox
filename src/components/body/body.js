@@ -36,7 +36,8 @@ export default class Body extends React.Component {
 				fieldOne: '',
 				fieldTwo: '',
 				fieldThree: ''
-			}
+			},
+			langValue: "english"
 		}
 	}
 
@@ -107,6 +108,7 @@ export default class Body extends React.Component {
 			return
 		} else {
 			console.log("Language in Storage: " + window.localStorage.getItem("test-guide-lang"));
+			this.state.langValue = window.localStorage.getItem("test-guide-lang");
 		}
 	}
 	//Update guideLang metadata value for user, based on what they select on the menu
@@ -122,7 +124,7 @@ export default class Body extends React.Component {
 					<div className="vertical-menu">
 						<Search placeholder="Search" enterButton onSearch={value => console.log(value)}/>
 						<label for="lang-selector">Select a Language</label>
-						<select name="lang-selector" id="select-lang" onload={this._langOnLoad()} onChange={(e) => this._onLangChange(e)}>
+						<select name="lang-selector" id="select-lang" value={this.state.langValue} onload={this._langOnLoad()} onChange={(e) => this._onLangChange(e)}>
 							<option value="english">English(default)</option>
 							<option value="spanish">Spanish</option>
 							<option value="italian">Italian</option>
