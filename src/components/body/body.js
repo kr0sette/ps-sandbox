@@ -101,6 +101,11 @@ export default class Body extends React.Component {
 		})
 	}
 
+	//Update guideLang metadata value for user, based on what they select on the menu
+	_onLangChange(e) {
+		console.log(e);
+	}
+
 	render() {
 		return (
 			<div className="body-container">
@@ -108,7 +113,7 @@ export default class Body extends React.Component {
 					<div className="vertical-menu">
 						<Search placeholder="Search" enterButton onSearch={value => console.log(value)}/>
 						<label for="lang-selector">Select a Language</label>
-						<select name="lang-selector" id="select-lang">
+						<select name="lang-selector" id="select-lang" onChange={(e) => this._onLangChange(e)}>
 							<option value="english">English(default)</option>
 							<option value="spanish">Spanish</option>
 							<option value="italian">Italian</option>
