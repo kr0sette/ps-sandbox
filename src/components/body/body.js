@@ -37,7 +37,7 @@ export default class Body extends React.Component {
 				fieldTwo: '',
 				fieldThree: ''
 			},
-			langValue: "italian"
+			langValue: ''
 		}
 	}
 
@@ -105,7 +105,10 @@ export default class Body extends React.Component {
 	_langOnLoad() {
 		console.log("Select Language Menu Loaded");
 		if(!window.localStorage.getItem("test-guide-lang")){
-			return
+			let langValue = 'italian';//Set default language to Italian
+			this.setState({
+				langValue
+			})
 		} else {
 			let storageLang = window.localStorage.getItem("test-guide-lang");
 			console.log("Language in Storage: " + storageLang);
@@ -122,6 +125,10 @@ export default class Body extends React.Component {
 		window.localStorage.setItem("test-guide-lang",e.target.value);
 	}
 
+	componentDidMount(){
+		this._langOnLoad()
+	}
+
 	render() {
 		return (
 			<div className="body-container">
@@ -129,7 +136,7 @@ export default class Body extends React.Component {
 					<div className="vertical-menu">
 						<Search placeholder="Search" enterButton onSearch={value => console.log(value)}/>
 						<label for="lang-selector">Select a Language</label>
-						<select name="lang-selector" id="select-lang" value={this.state.langValue} onload={this._langOnLoad()} onChange={(e) => this._onLangChange(e)}>
+						<select name="lang-selector" id="select-lang" value={this.state.langValue} onChange={(e) => this._onLangChange(e)}>
 							<option value="english">English(default)</option>
 							<option value="spanish">Spanish</option>
 							<option value="italian">Italian</option>
