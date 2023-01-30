@@ -118,7 +118,7 @@ export default class Body extends React.Component {
 			this.setState({
 				langValue
 			})
-			//this._updatePendoLangMetadata(langValue);
+			this._updatePendoLangMetadata(langValue);
 		}
 	}
 	//Update guideLang metadata value for user, based on what they select on the menu
@@ -130,7 +130,7 @@ export default class Body extends React.Component {
 		this.setState({
 			langValue
 		})
-		//this._updatePendoLangMetadata(langValue);
+		this._updatePendoLangMetadata(langValue);
 	}
 
 	_updatePendoLangMetadata(value){
