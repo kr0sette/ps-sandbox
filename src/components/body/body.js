@@ -116,7 +116,7 @@ export default class Body extends React.Component {
 			this.setState({
 				langValue
 			})
-			//console.log("Current Menu Language: " + this.state.langValue);
+			this._updatePendoLangMetadata(langValue);
 		}
 	}
 	//Update guideLang metadata value for user, based on what they select on the menu
@@ -128,6 +128,19 @@ export default class Body extends React.Component {
 		this.setState({
 			langValue
 		})
+		this._updatePendoLangMetadata(langValue);
+	}
+
+	_updatePendoLangMetadata(value){
+		if(pendo){
+			pendo.updateOptions(
+   			{visitor:
+      		{"guideLang": value}
+   			}
+			);
+		} else {
+			return
+		}
 	}
 
 	componentDidMount(){
