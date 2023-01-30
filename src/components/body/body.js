@@ -20,6 +20,8 @@ const fieldThreeList = {
 	"Opportunities": "ARR: "
 };
 
+const pendo = window.pendo;
+
 
 export default class Body extends React.Component {
 	constructor(props) {
