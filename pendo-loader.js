@@ -24,3 +24,14 @@ const chosenDomain = configs[env].domain;
         z = e.getElementsByTagName(n)[0]; z.parentNode.insertBefore(y, z);
     })(window, document, 'script', 'pendo');
 })(chosenAppKey, chosenDomain);
+
+pendo.initialize({
+    visitor: {
+        id: visitorParam || visitor || 'VISITOR-UNIQUE-ID',
+        role: role || 'user',
+        guideLang: 'english'
+    },
+    account: {
+        id: accountParam || account_id
+    }
+});
