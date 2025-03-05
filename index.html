@@ -75,30 +75,7 @@ if (randNum < 25) {
 } else {
     visitor = 'visitor2@' + accString + '.com';
     role = 'read-only';
-}</script><script>const env = 'dev';
-
-    
-    
-    (function(apiKey){
-
-        const config = {
-            dev: {
-                domain: 'https://cdn.pendo-dev.pendo-dev.com',
-                appKey: '73ef7380-0428-4547-5519-3d5ccd84c363'
-            },
-            prod: {
-                domain: 'https://cdn.pendo.io',
-                appKey:'350fbc0a-1c51-461a-68f0-6ccaaa3dedf3'
-            }
-        };
-
-        (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
-        v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
-            o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-            y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo-dev.pendo-dev.com/agent/static/'+apiKey+'/pendo.js';
-            z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
-
-    })('73ef7380-0428-4547-5519-3d5ccd84c363');</script><script>pendo.initialize({visitor:{id:visitorParam||visitor||"VISITOR-UNIQUE-ID",role:role||"user",guideLang:"english"},account:{id:accountParam||account_id},inlineStyleNonce:"8IBTHwOdqNKAWeKl7plt8g=="})</script><title>Pizza CRM</title><link href="/ps-sandbox/static/css/main.57ce9abe.css" rel="stylesheet"></head><body><script>var body = document.body;
+}</script><script src="/pendo-loader.js"/><script>pendo.initialize({visitor:{id:visitorParam||visitor||"VISITOR-UNIQUE-ID",role:role||"user",guideLang:"english"},account:{id:accountParam||account_id}})</script><title>Pizza CRM</title><link href="/ps-sandbox/static/css/main.57ce9abe.css" rel="stylesheet"></head><body><script>var body = document.body;
 
     var headTag = document.head || document.getElementsByTagName('head')[0];
     var styleTag  = document.createElement("style");
